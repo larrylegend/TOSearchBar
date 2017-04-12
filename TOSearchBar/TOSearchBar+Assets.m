@@ -81,28 +81,15 @@ static NSString * const kSharedClearIconKey = @"SharedClearIcon";
         return image;
     }
 
-    UIGraphicsBeginImageContextWithOptions((CGSize){15,15}, NO, 0.0f);
+    UIGraphicsBeginImageContextWithOptions((CGSize){13,13}, NO, 0.0f);
     
     //// General Declarations
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    //// Oval Drawing
-    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(1, 1, 10, 10)];
-    [UIColor.grayColor setStroke];
-    ovalPath.lineWidth = 1.3;
-    [ovalPath stroke];
-    
-    
-    //// Rectangle Drawing
-    CGContextSaveGState(context);
-    CGContextTranslateCTM(context, 8.8, 9.87);
-    CGContextRotateCTM(context, -45 * M_PI / 180);
-    
-    UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 1.4, 6.55)];
+    UIBezierPath *verticalPath = [UIBezierPath bezierPathWithRect: CGRectMake(6.0, 0.0, 1.0, 13.0)];
     [UIColor.grayColor setFill];
-    [rectanglePath fill];
-    
-    CGContextRestoreGState(context);
+    [verticalPath fill];
+
+    UIBezierPath *horizontalPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 6.0, 13.0, 1.0)];
+    [horizontalPath fill];
     
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
