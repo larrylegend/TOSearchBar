@@ -238,12 +238,7 @@ static const CGFloat kTOSearchBarIconMargin = 5.0f; // spacing between icon and 
     
     // layout the place holder label
     frame = self.placeholderLabel.frame;
-    if (self.editing || self.hasSearchText) {
-        frame.origin.x = (kTOSearchBarIconMargin + kTOSearchBarInset) + self.iconView.frame.size.width;
-    }
-    else {
-        frame.origin.x = floorf((CGRectGetWidth(self.containerView.frame) - CGRectGetWidth(frame)) * 0.5f);
-    }
+    frame.origin.x = (kTOSearchBarIconMargin + kTOSearchBarInset) + self.iconView.frame.size.width;
     frame.origin.y = floorf((CGRectGetHeight(self.containerView.frame) - CGRectGetHeight(frame)) * 0.5f);
     self.placeholderLabel.frame = frame;
     self.placeholderLabel.hidden = self.hasSearchText;
